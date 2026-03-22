@@ -64,7 +64,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="pt-24 bg-[#0a192f]">
+    <div className="bg-[#0a192f] min-h-screen">
       {/* Header */}
       <section className="bg-blue-900/20 py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">

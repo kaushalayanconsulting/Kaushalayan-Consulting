@@ -426,7 +426,8 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow pt-24 md:pt-32">
+      <div className="h-[104px] md:h-[120px]" />
+      <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
             key={pathname}

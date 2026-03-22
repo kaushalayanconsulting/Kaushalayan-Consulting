@@ -30,7 +30,7 @@ const Approach = () => {
   ];
 
   return (
-    <div className="pt-24 bg-[#002117]">
+    <div className="bg-[#002117] min-h-screen">
       {/* Header */}
       <section className="bg-emerald-950/20 py-20 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

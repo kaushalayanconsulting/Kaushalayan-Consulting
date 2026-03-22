@@ -19,7 +19,7 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-24 bg-[#2d0a1d]">
+    <div className="bg-[#2d0a1d] min-h-screen">
       {/* Header */}
       <section className="bg-pink-900/20 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

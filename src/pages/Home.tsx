@@ -11,9 +11,9 @@ const Home = () => {
   ];
 
   return (
-    <div className="overflow-hidden bg-violet-950">
+    <div className="min-h-screen bg-violet-950 overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-violet-950">
+      <section className="relative pb-20 lg:pb-32 bg-violet-950">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-600 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4"></div>
           <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-brand-800 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4"></div>

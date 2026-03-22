@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-24 bg-[#7c2d12] min-h-screen text-white">
+    <div className="bg-[#7c2d12] min-h-screen text-white">
       {/* Header */}
       <section className="bg-[#7c2d12] py-12 md:py-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
