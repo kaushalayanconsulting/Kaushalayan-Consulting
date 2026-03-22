@@ -240,6 +240,13 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Marquee - Now part of the Navbar container */}
+      <div className="w-full bg-white overflow-hidden border-b border-red-100">
+        <div className="animate-marquee py-2 text-red-600 font-bold text-sm md:text-base">
+          A premier training consultancy dedicated to bridging the gap between potential and performance through expert-led professional development.
+        </div>
+      </div>
+
       {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
@@ -419,7 +426,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow pt-24 md:pt-32">
         <AnimatePresence mode="wait">
           <motion.div
             key={pathname}

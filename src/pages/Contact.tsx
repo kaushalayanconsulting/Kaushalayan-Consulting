@@ -37,24 +37,24 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-24 bg-cyan-500 min-h-screen">
+    <div className="pt-24 bg-[#7c2d12] min-h-screen text-white">
       {/* Header */}
-      <section className="bg-cyan-500 py-12 md:py-20 border-b border-[#0a192f]/10">
+      <section className="bg-[#7c2d12] py-12 md:py-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-[#0a192f] mb-4 md:mb-6"
+            className="text-4xl md:text-6xl font-bold text-white mb-4 md:mb-6"
           >
             Get in Touch
           </motion.h1>
-          <p className="text-base md:text-lg text-[#0a192f]/80 max-w-3xl mx-auto font-medium px-2">
+          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto font-medium px-2">
             Have questions about our training modules or need a custom consultation? We're here to help you transform your workforce.
           </p>
         </div>
       </section>
 
-      <section className="py-8 md:py-20 bg-cyan-500">
+      <section className="py-8 md:py-20 bg-[#7c2d12]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
             {/* Contact Info */}
@@ -64,7 +64,7 @@ const Contact = () => {
                 
                 <div className="space-y-6 md:space-y-8">
                   <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-800/30 rounded-xl flex items-center justify-center text-cyan-400 shrink-0 border border-white/5">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-800/30 rounded-xl flex items-center justify-center text-orange-400 shrink-0 border border-white/5">
                       <Mail size={20} className="md:w-6 md:h-6" />
                     </div>
                     <div className="flex-grow overflow-hidden">
@@ -73,7 +73,7 @@ const Contact = () => {
                         <p className="text-blue-100/50 text-xs md:text-sm truncate">consultingkaushalayan@gmail.com</p>
                         <button 
                           onClick={() => copyToClipboard('consultingkaushalayan@gmail.com', 'email')}
-                          className="p-1.5 md:p-2 text-cyan-400 hover:bg-white/10 rounded-lg transition-colors shrink-0"
+                          className="p-1.5 md:p-2 text-orange-400 hover:bg-white/10 rounded-lg transition-colors shrink-0"
                           title="Copy to clipboard"
                         >
                           {copiedEmail ? <Check size={14} className="md:w-4 md:h-4" /> : <Copy size={14} className="md:w-4 md:h-4" />}
@@ -83,7 +83,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-800/30 rounded-xl flex items-center justify-center text-cyan-400 shrink-0 border border-white/5">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-800/30 rounded-xl flex items-center justify-center text-orange-400 shrink-0 border border-white/5">
                       <Phone size={20} className="md:w-6 md:h-6" />
                     </div>
                     <div className="flex-grow">
@@ -92,7 +92,7 @@ const Contact = () => {
                         <p className="text-blue-100/50 text-xs md:text-sm">+91 9958430718</p>
                         <button 
                           onClick={() => copyToClipboard('+91 9958430718', 'phone')}
-                          className="p-1.5 md:p-2 text-cyan-400 hover:bg-white/10 rounded-lg transition-colors shrink-0"
+                          className="p-1.5 md:p-2 text-orange-400 hover:bg-white/10 rounded-lg transition-colors shrink-0"
                           title="Copy to clipboard"
                         >
                           {copiedPhone ? <Check size={14} className="md:w-4 md:h-4" /> : <Copy size={14} className="md:w-4 md:h-4" />}
@@ -102,7 +102,7 @@ const Contact = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-800/30 rounded-xl flex items-center justify-center text-yellow-400 shrink-0 border border-white/5">
+                    <div className="w-12 h-12 bg-blue-800/30 rounded-xl flex items-center justify-center text-orange-400 shrink-0 border border-white/5">
                       <MapPin size={24} />
                     </div>
                     <div>
@@ -116,7 +116,7 @@ const Contact = () => {
                   <p className="text-sm font-bold text-white mb-4">Follow Us</p>
                   <div className="flex space-x-4">
                     {['LinkedIn', 'Twitter', 'Facebook'].map(social => (
-                      <a key={social} href="#" className="text-xs font-bold text-yellow-400 hover:text-yellow-500 uppercase tracking-widest">
+                      <a key={social} href="#" className="text-xs font-bold text-orange-400 hover:text-orange-500 uppercase tracking-widest">
                         {social}
                       </a>
                     ))}
@@ -128,7 +128,7 @@ const Contact = () => {
                 href="https://wa.link/a21az8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-left bg-yellow-600 p-10 rounded-[2.5rem] text-white hover:bg-yellow-700 transition-all group"
+                className="block w-full text-left bg-orange-700 p-10 rounded-[2.5rem] text-white hover:bg-orange-800 transition-all group"
               >
                 <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -136,7 +136,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <h4 className="text-xl font-bold mb-4">Quick Support (WhatsApp)</h4>
-                <p className="text-yellow-100 text-sm leading-relaxed">
+                <p className="text-orange-100 text-sm leading-relaxed">
                   Need immediate answers? Connect with us on WhatsApp for instant information about our programs and pricing.
                 </p>
               </a>
@@ -158,7 +158,7 @@ const Contact = () => {
                     <p className="text-blue-100/50 mb-8 md:mb-10 text-sm md:text-base px-4">Thank you for reaching out. We will get back to you shortly.</p>
                     <button 
                       onClick={() => setSubmitted(false)}
-                      className="text-cyan-400 font-bold hover:underline"
+                      className="text-orange-400 font-bold hover:underline"
                     >
                       Send another message
                     </button>
@@ -174,7 +174,7 @@ const Contact = () => {
                           value={formState.name}
                           onChange={(e) => setFormState({...formState, name: e.target.value})}
                           placeholder="John Doe"
-                          className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm md:text-base"
+                          className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all text-sm md:text-base"
                         />
                       </div>
                       <div className="space-y-2">
@@ -185,7 +185,7 @@ const Contact = () => {
                           value={formState.email}
                           onChange={(e) => setFormState({...formState, email: e.target.value})}
                           placeholder="john@example.com"
-                          className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm md:text-base"
+                          className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all text-sm md:text-base"
                         />
                       </div>
                     </div>
@@ -198,7 +198,7 @@ const Contact = () => {
                         value={formState.subject}
                         onChange={(e) => setFormState({...formState, subject: e.target.value})}
                         placeholder="Inquiry about Corporate Training"
-                        className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all text-sm md:text-base"
+                        className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all text-sm md:text-base"
                       />
                     </div>
 
@@ -210,14 +210,14 @@ const Contact = () => {
                         value={formState.message}
                         onChange={(e) => setFormState({...formState, message: e.target.value})}
                         placeholder="Tell us about your training needs..."
-                        className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all resize-none text-sm md:text-base"
+                        className="w-full px-5 py-3.5 md:px-6 md:py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 transition-all resize-none text-sm md:text-base"
                       ></textarea>
                     </div>
 
                     <button 
                       disabled={isSubmitting}
                       type="submit"
-                      className="w-full bg-cyan-500 text-[#0a192f] py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-cyan-400 transition-all shadow-xl shadow-cyan-500/10 flex items-center justify-center disabled:opacity-70"
+                      className="w-full bg-orange-600 text-white py-4 md:py-5 rounded-xl font-bold text-base md:text-lg hover:bg-orange-500 transition-all shadow-xl shadow-orange-600/10 flex items-center justify-center disabled:opacity-70"
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                       {!isSubmitting && <Send className="ml-3 md:w-5 md:h-5" size={18} />}
@@ -245,19 +245,19 @@ const Contact = () => {
                 />
               </div>
               <div className="p-8 md:p-16">
-                <span className="text-cyan-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block">Meet Our Expert</span>
+                <span className="text-orange-500 font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block">Meet Our Expert</span>
                 <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 md:mb-6">Vinayak Jha</h2>
                 <p className="text-blue-100/60 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
                   Our expert talk. Connect with Vinayak Jha for specialized insights into Quality, Training, and Process Optimization. With 15+ years of experience, he helps organizations achieve operational excellence.
                 </p>
                 <div className="flex flex-wrap gap-3 md:gap-4">
-                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-800/30 rounded-full border border-white/5 text-cyan-400 text-xs md:text-sm font-medium">
+                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-800/30 rounded-full border border-white/5 text-orange-400 text-xs md:text-sm font-medium">
                     Quality & Training
                   </div>
-                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-800/30 rounded-full border border-white/5 text-cyan-400 text-xs md:text-sm font-medium">
+                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-800/30 rounded-full border border-white/5 text-orange-400 text-xs md:text-sm font-medium">
                     Six Sigma
                   </div>
-                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-800/30 rounded-full border border-white/5 text-cyan-400 text-xs md:text-sm font-medium">
+                  <div className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-800/30 rounded-full border border-white/5 text-orange-400 text-xs md:text-sm font-medium">
                     Process Optimization
                   </div>
                 </div>

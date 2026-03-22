@@ -58,8 +58,16 @@ const Home = () => {
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                y: [0, -15, 0]
+              }}
+              transition={{ 
+                opacity: { duration: 0.6, delay: 0.2 },
+                scale: { duration: 0.6, delay: 0.2 },
+                y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+              }}
               className="relative"
             >
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/5">
@@ -70,7 +78,11 @@ const Home = () => {
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-slate-900 p-6 rounded-2xl shadow-xl z-20 hidden sm:block border border-white/10">
+              <motion.div 
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 bg-slate-900 p-6 rounded-2xl shadow-xl z-20 hidden sm:block border border-white/10"
+              >
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-brand-900/50 rounded-full flex items-center justify-center text-brand-400">
                     <CheckCircle2 size={24} />
@@ -80,7 +92,7 @@ const Home = () => {
                     <p className="text-xs text-slate-400">Industry recognized experts</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -99,9 +111,13 @@ const Home = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="flex items-center space-x-6 p-6"
               >
-                <div className="w-16 h-16 bg-violet-900 rounded-2xl flex items-center justify-center text-brand-500 border border-white/5">
+                <motion.div 
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.5 }}
+                  className="w-16 h-16 bg-violet-900 rounded-2xl flex items-center justify-center text-brand-500 border border-white/5"
+                >
                   <stat.icon size={32} />
-                </div>
+                </motion.div>
                 <div>
                   <p className="text-3xl font-bold text-white">{stat.value}</p>
                   <p className="text-sm text-slate-400 font-medium">{stat.label}</p>
