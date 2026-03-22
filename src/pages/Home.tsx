@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
 import { ChevronRight, Users, Award, TrendingUp, CheckCircle2 } from 'lucide-react';
 
+import { AIPlanner } from '../components/AIPlanner';
+
 const Home = () => {
   const stats = [
     { label: 'Years Experience', value: '15+', icon: Award },
@@ -279,6 +281,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* AI Planner Section */}
+      <AIPlanner />
 
       {/* Why Choose Us */}
       <section className="section-padding bg-violet-900/50">

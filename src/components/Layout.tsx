@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Menu, X, Mail, Phone, MapPin, Linkedin, Twitter, Facebook, Search } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
+import { GoogleGenAI } from "@google/genai";
 
 import { AIChat } from './AIChat';
 
@@ -13,6 +14,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [pathname, setPathname] = useState(window.location.pathname);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +32,92 @@ const Navbar = () => {
       window.removeEventListener('popstate', handlePathChange);
     };
   }, []);
+
+  const handleSearch = async (query: string) => {
+    if (!query.trim()) return;
+    setIsSearching(true);
+    setShowSuggestions(false);
+
+    try {
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const prompt = `
+        You are a navigation assistant for Kaushalayan Consulting website.
+        The available pages are:
+        - Home: /
+        - About Us: /about
+        - Services (Training, Quality, Six Sigma): /services
+        - Our Approach (Methodology): /approach
+        - Pricing (Plans, Corporate): /pricing
+        - Contact Us (Support, Inquiry): /contact
+
+        User search query: "${query}"
+
+        Based on the query, determine the most relevant page path. 
+        If it's a general query about training or what we do, suggest /services.
+        If it's about cost or plans, suggest /pricing.
+        If it's about the company or team, suggest /about.
+        If it's about getting in touch, suggest /contact.
+        If it's about how we work, suggest /approach.
+        
+        Return ONLY the path (e.g., /services). If no clear match, return /.
+      `;
+
+      const response = await ai.models.generateContent({
+        model: "gemini-3-flash-preview",
+        contents: prompt,
+      });
+
+      const bestPath = response.text?.trim() || '/';
+      
+      // Normal search fallback: if query contains specific keywords, override AI if it's more direct
+      const lowerQuery = query.toLowerCase();
+      let finalPath = bestPath;
+
+      if (lowerQuery.includes('price') || lowerQuery.includes('cost') || lowerQuery.includes('plan')) finalPath = '/pricing';
+      else if (lowerQuery.includes('contact') || lowerQuery.includes('call') || lowerQuery.includes('email')) finalPath = '/contact';
+      else if (lowerQuery.includes('service') || lowerQuery.includes('train') || lowerQuery.includes('sigma')) finalPath = '/services';
+      else if (lowerQuery.includes('about') || lowerQuery.includes('who') || lowerQuery.includes('expert')) finalPath = '/about';
+      else if (lowerQuery.includes('approach') || lowerQuery.includes('how') || lowerQuery.includes('method')) finalPath = '/approach';
+
+      window.location.href = finalPath;
+    } catch (error) {
+      console.error("AI Search Error:", error);
+      // Fallback to home if error
+      window.location.href = '/';
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const fetchSuggestions = async (query: string) => {
+    if (query.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    setIsSearching(true);
+    try {
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
+      const response = await ai.models.generateContent({
+        model: "gemini-3-flash-preview",
+        contents: `Based on a training consultancy website (Kaushalayan Consulting), suggest 3-4 short search terms or topics starting with or related to: "${query}". Return ONLY a comma-separated list.`,
+      });
+      const text = response.text || '';
+      const suggestedList = text.split(',').map(s => s.trim()).filter(s => s.length > 0);
+      setSuggestions(suggestedList);
+      setShowSuggestions(true);
+    } catch (error) {
+      console.error("Search Suggestion Error:", error);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchQuery) fetchSuggestions(searchQuery);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -52,7 +143,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-gray-800/95 backdrop-blur-md shadow-lg py-3' : 'bg-gray-800/80 py-5'
+        scrolled ? 'bg-[#0a192f]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0a192f]/80 py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,6 +159,53 @@ const Navbar = () => {
               Kaushalayan Consulting<span className="text-brand-500">.</span>
             </span>
           </a>
+
+          {/* Desktop Search Bar */}
+          <div className="hidden lg:block relative group ml-8">
+            <div className="relative">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setShowSuggestions(true)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') handleSearch(searchQuery);
+                }}
+                placeholder="AI Search..."
+                className="w-48 bg-white/5 border border-white/10 rounded-full py-2 pl-10 pr-4 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:w-64 transition-all"
+              />
+              <Search className="absolute left-3 top-2.5 text-white/40" size={16} />
+              {isSearching && (
+                <div className="absolute right-3 top-2.5">
+                  <div className="animate-spin rounded-full h-4 w-4 border-2 border-brand-500 border-t-transparent"></div>
+                </div>
+              )}
+            </div>
+
+            <AnimatePresence>
+              {showSuggestions && suggestions.length > 0 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full left-0 w-full mt-2 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50"
+                >
+                  {suggestions.map((suggestion, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setSearchQuery(suggestion);
+                        handleSearch(suggestion);
+                      }}
+                      className="w-full text-left px-4 py-3 text-sm text-white/70 hover:bg-white/5 hover:text-brand-400 transition-colors border-b border-white/5 last:border-0"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
@@ -112,6 +250,53 @@ const Navbar = () => {
             className="md:hidden bg-slate-900 border-b border-slate-800 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
+              {/* Mobile Search Bar */}
+              <div className="px-3 py-4 border-b border-slate-800">
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onFocus={() => setShowSuggestions(true)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') handleSearch(searchQuery);
+                    }}
+                    placeholder="AI Search..."
+                    className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-4 text-base text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 transition-all"
+                  />
+                  <Search className="absolute left-4 top-3.5 text-white/40" size={20} />
+                  {isSearching && (
+                    <div className="absolute right-4 top-3.5">
+                      <div className="animate-spin rounded-full h-5 w-5 border-2 border-brand-500 border-t-transparent"></div>
+                    </div>
+                  )}
+                </div>
+                
+                <AnimatePresence>
+                  {showSuggestions && suggestions.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="mt-2 bg-slate-900/50 rounded-2xl overflow-hidden"
+                    >
+                      {suggestions.map((suggestion, i) => (
+                        <button
+                          key={i}
+                          onClick={() => {
+                            setSearchQuery(suggestion);
+                            handleSearch(suggestion);
+                          }}
+                          className="w-full text-left px-4 py-4 text-base text-white/70 hover:bg-white/5 hover:text-brand-400 transition-colors border-b border-white/5 last:border-0"
+                        >
+                          {suggestion}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               {navLinks.map((link) => (
                 <a
                   key={link.path}
@@ -143,7 +328,7 @@ const Navbar = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#3d2b1f] text-slate-300 pt-20 pb-10 border-t border-white/5">
+    <footer className="bg-[#0a192f] text-slate-300 pt-20 pb-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
