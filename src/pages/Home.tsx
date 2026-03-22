@@ -9,9 +9,9 @@ const Home = () => {
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-violet-950">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-slate-950">
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-violet-950">
         <div className="absolute inset-0 z-0 opacity-20">
           <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-brand-600 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4"></div>
           <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-brand-800 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4"></div>
@@ -85,7 +85,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-slate-950 border-y border-slate-900">
+      <section className="py-12 bg-violet-950 border-y border-violet-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, idx) => (
@@ -97,7 +97,7 @@ const Home = () => {
                 transition={{ delay: idx * 0.1 }}
                 className="flex items-center space-x-6 p-6"
               >
-                <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center text-brand-500 border border-white/5">
+                <div className="w-16 h-16 bg-violet-900 rounded-2xl flex items-center justify-center text-brand-500 border border-white/5">
                   <stat.icon size={32} />
                 </div>
                 <div>
@@ -111,7 +111,7 @@ const Home = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-violet-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -164,7 +164,7 @@ const Home = () => {
       </section>
 
       {/* Experience and Expertise Section */}
-      <section className="section-padding bg-slate-900/30">
+      <section className="section-padding bg-violet-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Experience and Expertise</h2>
@@ -176,7 +176,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-slate-900 rounded-3xl overflow-hidden border border-white/5 shadow-xl group"
+              className="bg-violet-900 rounded-3xl overflow-hidden border border-white/5 shadow-xl group"
             >
               <div className="aspect-video overflow-hidden relative">
                 <img 
@@ -202,7 +202,7 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-slate-900 rounded-3xl overflow-hidden border border-white/5 shadow-xl group"
+              className="bg-violet-900 rounded-3xl overflow-hidden border border-white/5 shadow-xl group"
             >
               <div className="aspect-video overflow-hidden relative">
                 <img 
@@ -227,7 +227,7 @@ const Home = () => {
       </section>
 
       {/* Proven Success Section */}
-      <section className="section-padding bg-slate-950">
+      <section className="section-padding bg-violet-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -281,7 +281,7 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-slate-900/50">
+      <section className="section-padding bg-violet-900/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Why Choose Kaushalayan Consulting?</h2>
@@ -300,7 +300,7 @@ const Home = () => {
               <motion.div
                 key={idx}
                 whileHover={{ y: -5 }}
-                className="bg-slate-900 p-8 rounded-3xl shadow-sm border border-white/5"
+                className="bg-violet-900 p-8 rounded-3xl shadow-sm border border-white/5"
               >
                 <div className="w-10 h-10 bg-brand-900/30 rounded-lg flex items-center justify-center text-brand-500 mb-6">
                   <CheckCircle2 size={20} />

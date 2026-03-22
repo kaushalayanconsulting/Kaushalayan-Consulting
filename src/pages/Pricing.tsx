@@ -27,9 +27,9 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="pt-24 bg-[#2d0a1c]">
+    <div className="pt-24 bg-[#2d0a1c] max-md:bg-[#FF00FF]">
       {/* Header */}
-      <section className="bg-[#3d0e26] py-20 border-b border-white/5">
+      <section className="bg-[#3d0e26] max-md:bg-[#FF00FF] py-20 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="section-padding bg-[#2d0a1c]">
+      <section className="section-padding bg-[#2d0a1c] max-md:bg-[#FF00FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {plans.map((plan, idx) => (
@@ -169,7 +169,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-[#3d0e26]">
+      <section className="section-padding bg-[#3d0e26] max-md:bg-[#FF00FF]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
