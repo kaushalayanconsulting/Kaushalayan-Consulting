@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-[#0a051a] overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-32 lg:pt-32 lg:pb-48 bg-[#0a051a]">
+      <section className="relative pt-12 pb-32 lg:pt-16 lg:pb-48 bg-[#0a051a]">
         {/* World Map Background Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"

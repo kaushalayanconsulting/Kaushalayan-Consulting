@@ -143,7 +143,7 @@ const Navbar = () => {
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a192f]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0a192f]/80 py-5'
+        scrolled ? 'bg-[#0a051a]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0a051a]/80 py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -240,32 +240,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Marquee - Enhanced Premium Decoration */}
-      <div className="w-full bg-[#0a051a] overflow-hidden border-y border-white/10 relative">
-        {/* Decorative Gradient Overlays */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a051a] to-transparent z-20"></div>
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a051a] to-transparent z-20"></div>
-        
-        {/* Subtle Glow Line */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
-
-        <div className="animate-marquee py-4 text-brand-400/80 font-medium text-[10px] md:text-xs tracking-[0.4em] uppercase flex items-center">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <div key={i} className="flex items-center shrink-0">
-              <span className="px-16 whitespace-nowrap">
-                Bridging the gap between potential and performance
-              </span>
-              <div className="flex space-x-2 items-center mx-4">
-                <div className="w-1.5 h-1.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.8)]"></div>
-                <div className="w-1 h-1 bg-brand-500/40 rounded-full"></div>
-                <div className="w-1.5 h-1.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.8)]"></div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Mobile Nav */}
       <AnimatePresence>
         {isOpen && (
@@ -352,9 +326,38 @@ const Navbar = () => {
   );
 };
 
+const Marquee = () => {
+  return (
+    <div className="w-full bg-[#0a051a] overflow-hidden border-y border-white/5 relative">
+      {/* Decorative Gradient Overlays */}
+      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a051a] to-transparent z-20"></div>
+      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a051a] to-transparent z-20"></div>
+      
+      {/* Subtle Glow Line */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/20 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/20 to-transparent"></div>
+
+      <div className="animate-marquee py-3 text-brand-400/60 font-medium text-[9px] md:text-[10px] tracking-[0.6em] uppercase flex items-center">
+        {[1, 2, 3, 4, 5, 6].map((i) => (
+          <div key={i} className="flex items-center shrink-0">
+            <span className="px-12 whitespace-nowrap">
+              Bridging the gap between potential and performance
+            </span>
+            <div className="flex space-x-3 items-center mx-4">
+              <div className="w-1 h-1 bg-brand-500/40 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.6)]"></div>
+              <div className="w-0.5 h-0.5 bg-brand-500/10 rounded-full"></div>
+              <div className="w-1 h-1 bg-brand-500/40 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.6)]"></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const Footer = () => {
   return (
-    <footer className="bg-[#0a192f] text-slate-300 pt-20 pb-10 border-t border-white/5">
+    <footer className="bg-[#0a051a] text-slate-300 pt-20 pb-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
@@ -443,9 +446,10 @@ export const Layout = ({ children }: LayoutProps) => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#0a051a]">
       <Navbar />
-      <div className="h-[110px] md:h-[140px]" />
+      <div className="h-[80px]" />
+      <Marquee />
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
