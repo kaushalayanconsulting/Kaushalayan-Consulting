@@ -27,7 +27,7 @@ export const AIPlanner = () => {
   };
 
   return (
-    <section className="section-padding bg-slate-900 relative overflow-hidden">
+    <section className="section-padding bg-[#2e1065] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#eab308_0%,transparent_50%)] blur-[120px]"></div>
@@ -47,20 +47,20 @@ export const AIPlanner = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             Your Personal <span className="text-yellow-500">AI Training Planner</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
             Tell us your professional goals, and our AI will craft a specialized training roadmap tailored to your success.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+          <div className="bg-[#222222]/50 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
             <div className="space-y-6">
               <div className="relative">
                 <textarea
                   value={goal}
                   onChange={(e) => setGoal(e.target.value)}
                   placeholder="e.g., I want to improve my team's negotiation skills for high-stakes corporate deals..."
-                  className="w-full bg-slate-900/50 border border-white/10 rounded-3xl p-6 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all min-h-[150px] text-lg"
+                  className="w-full bg-[#2e1065]/50 border border-white/10 rounded-3xl p-6 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 transition-all min-h-[150px] text-lg"
                 />
                 <div className="absolute bottom-4 right-4">
                   <Target className="text-yellow-500/30" size={32} />
@@ -70,7 +70,7 @@ export const AIPlanner = () => {
               <button
                 onClick={generatePlan}
                 disabled={isPlanning || !goal.trim()}
-                className="w-full bg-yellow-500 text-[#0a192f] py-5 rounded-2xl font-bold text-xl hover:bg-yellow-400 transition-all flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-yellow-500/10"
+                className="w-full bg-yellow-500 text-[#2e1065] py-5 rounded-2xl font-bold text-xl hover:bg-yellow-400 transition-all flex items-center justify-center space-x-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-yellow-500/10"
               >
                 {isPlanning ? (
                   <>
@@ -102,7 +102,7 @@ export const AIPlanner = () => {
                     <h3 className="text-2xl font-bold text-white">Your Specialized Roadmap</h3>
                   </div>
                   <div className="prose prose-invert max-w-none">
-                    <div className="bg-slate-900/50 rounded-3xl p-8 border border-white/5 text-slate-300 whitespace-pre-wrap leading-relaxed">
+                    <div className="bg-[#2e1065]/50 rounded-3xl p-8 border border-white/5 text-slate-200 whitespace-pre-wrap leading-relaxed">
                       {plan}
                     </div>
                   </div>

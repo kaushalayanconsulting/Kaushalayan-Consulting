@@ -11,9 +11,9 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a051a] overflow-hidden">
+    <div className="min-h-screen bg-[#2e1065] overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-12 pb-32 lg:pt-16 lg:pb-48 bg-[#0a051a]">
+      <section className="relative pt-8 pb-32 lg:pt-12 lg:pb-48 bg-[#2e1065]">
         {/* World Map Background Overlay */}
         <div 
           className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
@@ -38,12 +38,13 @@ const Home = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <span className="inline-flex items-center py-1.5 px-4 rounded-full bg-brand-500/10 text-brand-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-8 border border-brand-500/20 backdrop-blur-sm">
+                <span className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.5)]"></span>
                 Global Training Excellence
               </span>
               <h1 className="text-6xl lg:text-8xl font-bold text-white leading-[0.9] mb-8 tracking-tight">
                 Mastering <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-brand-500 italic serif font-light">Performance</span> Through Insight
               </h1>
-              <p className="text-xl text-slate-400 mb-12 max-w-lg leading-relaxed font-light">
+              <p className="text-xl text-slate-200 mb-12 max-w-lg leading-relaxed font-light">
                 We empower organizations with world-class training solutions that bridge the gap between human potential and corporate success.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
@@ -73,7 +74,7 @@ const Home = () => {
               className="relative"
             >
               <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 group">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a051a] via-transparent to-transparent opacity-40 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065] via-transparent to-transparent opacity-40 z-10"></div>
                 <img 
                   src="https://i.ibb.co/bRJnPPYJ/Whats-App-Image-2026-03-22-at-12-22-41.jpg" 
                   alt="Training Session" 
@@ -97,7 +98,7 @@ const Home = () => {
                   </div>
                   <div>
                     <p className="text-lg font-bold text-white">Elite Trainers</p>
-                    <p className="text-sm text-slate-400 tracking-wide uppercase">Certified Global Experts</p>
+                    <p className="text-sm text-slate-200 tracking-wide uppercase">Certified Global Experts</p>
                   </div>
                 </div>
               </motion.div>
@@ -107,7 +108,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-[#0a051a] border-y border-white/5 relative overflow-hidden">
+      <section className="py-16 bg-[#2e1065] border-y border-white/5 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-brand-500/5 to-transparent pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -134,7 +135,7 @@ const Home = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="section-padding bg-[#0a051a] relative">
+      <section className="section-padding bg-[#2e1065] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -181,7 +182,7 @@ const Home = () => {
                     <div className="mt-1 w-6 h-6 rounded-lg bg-brand-500/10 flex items-center justify-center text-brand-500 shrink-0 border border-brand-500/20 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
                       <CheckCircle2 size={14} />
                     </div>
-                    <p className="text-slate-400 leading-relaxed font-light group-hover:text-slate-300 transition-colors duration-300">{point}</p>
+                    <p className="text-slate-300 leading-relaxed font-light group-hover:text-slate-100 transition-colors duration-300">{point}</p>
                   </div>
                 ))}
               </div>
@@ -191,7 +192,7 @@ const Home = () => {
       </section>
 
       {/* Experience and Expertise Section */}
-      <section className="section-padding bg-[#0f0a24] relative overflow-hidden">
+      <section className="section-padding bg-[#2e1065] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -216,14 +217,14 @@ const Home = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0a24] via-transparent to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065] via-transparent to-transparent opacity-60"></div>
                 <div className="absolute top-6 left-6 w-14 h-14 bg-brand-500 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-brand-500/20 border border-white/10">
                   <Award size={28} />
                 </div>
               </div>
               <div className="p-10">
                 <h3 className="text-2xl font-bold text-white mb-4">Industry Professionals</h3>
-                <p className="text-slate-400 leading-relaxed font-light">
+                <p className="text-slate-200 leading-relaxed font-light">
                   Our team is led by seasoned industry professionals with 15–18 years of hands-on experience across business development, customer-centric operations, and sales—delivering expert guidance and actionable insights.
                 </p>
               </div>
@@ -243,14 +244,14 @@ const Home = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0a24] via-transparent to-transparent opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065] via-transparent to-transparent opacity-60"></div>
                 <div className="absolute top-6 left-6 w-14 h-14 bg-brand-500 rounded-2xl flex items-center justify-center text-white shadow-xl shadow-brand-500/20 border border-white/10">
                   <Users size={28} />
                 </div>
               </div>
               <div className="p-10">
                 <h3 className="text-2xl font-bold text-white mb-4">Trained Professionals</h3>
-                <p className="text-slate-400 leading-relaxed font-light">
+                <p className="text-slate-200 leading-relaxed font-light">
                   We have successfully trained over 5,000+ professionals across various sectors, including sales and client handling, demonstrating our commitment to excellence and measurable performance improvements.
                 </p>
               </div>
@@ -260,7 +261,7 @@ const Home = () => {
       </section>
 
       {/* Proven Success Section */}
-      <section className="section-padding bg-[#0a051a] relative">
+      <section className="section-padding bg-[#2e1065] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -286,7 +287,7 @@ const Home = () => {
                 ].map((point, idx) => (
                   <div key={idx} className="flex items-center space-x-5 group">
                     <div className="w-2 h-2 rounded-full bg-brand-500 group-hover:scale-150 transition-transform duration-300"></div>
-                    <p className="text-slate-400 font-light group-hover:text-slate-200 transition-colors duration-300">{point}</p>
+                    <p className="text-slate-300 font-light group-hover:text-slate-100 transition-colors duration-300">{point}</p>
                   </div>
                 ))}
               </div>
@@ -317,14 +318,14 @@ const Home = () => {
       <AIPlanner />
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-[#0f0a24] relative">
+      <section className="section-padding bg-[#2e1065] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="inline-block px-4 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-6">
               Our Advantage
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Why Choose Kaushalayan?</h2>
-            <p className="text-slate-400 font-light">We deliver measurable results through a blend of technical expertise and business development acumen.</p>
+            <p className="text-slate-200 font-light">We deliver measurable results through a blend of technical expertise and business development acumen.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -349,7 +350,7 @@ const Home = () => {
                   <CheckCircle2 size={24} />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-400 transition-colors">{item.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed font-light">{item.desc}</p>
+                <p className="text-slate-300 text-sm leading-relaxed font-light">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -357,7 +358,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-32 bg-[#0a051a]">
+      <section className="py-32 bg-[#2e1065]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-brand-600 to-brand-900 rounded-[4rem] p-16 md:p-24 text-center relative overflow-hidden shadow-[0_0_80px_rgba(var(--brand-600),0.3)]">
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/world-map.png')] opacity-10 pointer-events-none"></div>

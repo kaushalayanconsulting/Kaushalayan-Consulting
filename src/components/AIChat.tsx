@@ -67,11 +67,12 @@ export const AIChat = () => {
           href="https://wa.link/a21az8"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Contact us on WhatsApp"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-14 h-14 bg-[#25D366] text-white rounded-2xl shadow-lg flex items-center justify-center group overflow-hidden"
+          className="w-14 h-14 bg-[#25D366] text-white rounded-2xl shadow-lg flex items-center justify-center group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2e1065]"
         >
           <svg 
             viewBox="0 0 24 24" 
@@ -92,7 +93,8 @@ export const AIChat = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(true)}
-              className="w-14 h-14 bg-brand-600 text-white rounded-2xl shadow-lg flex items-center justify-center group overflow-hidden"
+              aria-label="Open AI Chat Advisor"
+              className="w-14 h-14 bg-brand-600 text-white rounded-2xl shadow-lg flex items-center justify-center group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#2e1065]"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-700 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               <Sparkles size={24} className="relative z-10" />
@@ -108,6 +110,9 @@ export const AIChat = () => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 40, scale: 0.9 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Kaushalayan AI Chat Advisor"
             className="fixed bottom-6 right-6 w-[90vw] sm:w-[400px] h-[600px] max-h-[80vh] bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] z-50 flex flex-col overflow-hidden"
           >
             {/* Premium Header */}
@@ -117,12 +122,12 @@ export const AIChat = () => {
                   <div className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
                     <Sparkles size={20} className="text-brand-200" />
                   </div>
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 border-2 border-brand-600 rounded-full"></span>
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-yellow-400 border-2 border-brand-600 rounded-full"></span>
                 </div>
                 <div>
                   <p className="font-bold text-sm tracking-tight">Kaushalayan AI</p>
                   <div className="flex items-center space-x-1">
-                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+                    <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
                     <p className="text-[10px] font-medium text-brand-100 uppercase tracking-wider">Always Online</p>
                   </div>
                 </div>
@@ -130,13 +135,15 @@ export const AIChat = () => {
               <div className="flex items-center space-x-1">
                 <button 
                   onClick={() => setIsOpen(false)} 
-                  className="hover:bg-white/10 p-2 rounded-xl transition-colors group"
+                  aria-label="Minimize chat"
+                  className="hover:bg-white/10 p-2 rounded-xl transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
                 >
                   <Minus size={18} className="group-hover:scale-110 transition-transform" />
                 </button>
                 <button 
                   onClick={() => setIsOpen(false)} 
-                  className="hover:bg-white/10 p-2 rounded-xl transition-colors group"
+                  aria-label="Close chat"
+                  className="hover:bg-white/10 p-2 rounded-xl transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20"
                 >
                   <X size={18} className="group-hover:scale-110 transition-transform" />
                 </button>
@@ -148,6 +155,8 @@ export const AIChat = () => {
               ref={scrollRef} 
               className="flex-grow overflow-y-auto p-6 space-y-6 scroll-smooth scrollbar-hide"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              aria-live="polite"
+              aria-atomic="false"
             >
               {messages.map((m, i) => (
                 <motion.div 
@@ -183,14 +192,16 @@ export const AIChat = () => {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder="Type your message..."
+                  aria-label="Chat message"
                   className="w-full bg-slate-800/50 border border-white/10 rounded-2xl pl-5 pr-14 py-3.5 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
                 />
                 <button
                   onClick={handleSend}
                   disabled={isLoading || !input.trim()}
-                  className="absolute right-2 bg-brand-600 text-white p-2 rounded-xl hover:bg-brand-500 transition-all disabled:opacity-50 disabled:hover:bg-brand-600 shadow-lg shadow-brand-900/20"
+                  aria-label="Send message"
+                  className="absolute right-2 bg-brand-600 text-white p-2 rounded-xl hover:bg-brand-500 transition-all disabled:opacity-50 disabled:hover:bg-brand-600 shadow-lg shadow-brand-900/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
                 >
                   {isLoading ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
                 </button>

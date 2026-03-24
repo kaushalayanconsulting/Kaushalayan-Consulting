@@ -7,32 +7,32 @@ const Approach = () => {
       title: "Pre-assessment",
       desc: "We begin by understanding the current skill levels and identifying specific gaps through diagnostic tests and interviews.",
       icon: ClipboardList,
-      color: "bg-emerald-600"
+      color: "bg-white/10"
     },
     {
       title: "Customized Content",
       desc: "Based on the assessment, we tailor our modules to use your industry's terminology and real-world challenges.",
       icon: Settings,
-      color: "bg-teal-600"
+      color: "bg-white/10"
     },
     {
       title: "Real-life Simulations",
       desc: "Our training is 70% practical. We use role-plays and simulations to ensure participants can apply skills immediately.",
       icon: PlayCircle,
-      color: "bg-green-600"
+      color: "bg-white/10"
     },
     {
       title: "Post-training Feedback",
       desc: "We provide detailed reports on participant progress and offer follow-up support to ensure long-term retention.",
       icon: MessageSquareQuote,
-      color: "bg-emerald-500"
+      color: "bg-white/10"
     }
   ];
 
   return (
-    <div className="bg-[#002117] min-h-screen">
+    <div className="bg-[#2e1065] min-h-screen">
       {/* Header */}
-      <section className="bg-emerald-950/20 py-20 border-b border-white/5">
+      <section className="bg-white/5 py-16 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -41,18 +41,18 @@ const Approach = () => {
           >
             Our Training Approach
           </motion.h1>
-          <p className="text-lg text-emerald-100/60 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
             A scientific and practical methodology designed to ensure that learning translates into measurable performance improvement.
           </p>
         </div>
       </section>
 
       {/* Steps Section */}
-      <section className="section-padding bg-[#001a12]">
+      <section className="section-padding bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             {/* Vertical Line for Desktop */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-emerald-900/30 -translate-x-1/2 hidden lg:block"></div>
+            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/10 -translate-x-1/2 hidden lg:block"></div>
 
             <div className="space-y-20 lg:space-y-32">
               {steps.map((step, idx) => (
@@ -71,7 +71,7 @@ const Approach = () => {
                       <step.icon size={32} />
                     </div>
                     <h2 className="text-3xl font-bold text-white mb-6">{step.title}</h2>
-                    <p className="text-emerald-100/50 text-lg leading-relaxed">
+                    <p className="text-slate-400 text-lg leading-relaxed">
                       {step.desc}
                     </p>
                   </div>
@@ -87,11 +87,11 @@ const Approach = () => {
       </section>
 
       {/* Training Program Features Section */}
-      <section className="section-padding bg-[#001a12] border-t border-white/5">
+      <section className="section-padding bg-[#2e1065] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Training Program Features</h2>
-            <p className="text-emerald-100/40 max-w-2xl mx-auto">Tailored solutions ensuring effective learning and impactful outcomes for participants.</p>
+            <p className="text-slate-400 max-w-2xl mx-auto">Tailored solutions ensuring effective learning and impactful outcomes for participants.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -123,7 +123,7 @@ const Approach = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-emerald-950/30 rounded-3xl overflow-hidden border border-white/5 shadow-xl group"
+                className="bg-white/5 rounded-3xl overflow-hidden border border-white/5 shadow-xl group"
               >
                 <div className="aspect-video overflow-hidden">
                   <img 
@@ -135,7 +135,7 @@ const Approach = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-emerald-100/40 text-sm leading-relaxed">
+                  <p className="text-slate-400 text-sm leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>
@@ -146,11 +146,11 @@ const Approach = () => {
       </section>
 
       {/* Professional Training Programs Section */}
-      <section className="section-padding bg-emerald-950/20">
+      <section className="section-padding bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Professional Training Programs</h2>
-            <p className="text-emerald-100/40 max-w-2xl mx-auto">Explore our specialized modules designed for modern business challenges.</p>
+            <p className="text-slate-400 max-w-2xl mx-auto">Explore our specialized modules designed for modern business challenges.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -168,7 +168,7 @@ const Approach = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative bg-emerald-950/30 rounded-3xl overflow-hidden border border-white/5 shadow-2xl"
+                className="group relative bg-white/5 rounded-3xl overflow-hidden border border-white/5 shadow-2xl"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img 
@@ -179,7 +179,7 @@ const Approach = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-white leading-tight group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-lg font-bold text-white leading-tight group-hover:text-brand-400 transition-colors">
                     {program.title}
                   </h3>
                 </div>
@@ -190,11 +190,11 @@ const Approach = () => {
       </section>
 
       {/* Methodology Section */}
-      <section className="section-padding bg-emerald-950/10">
+      <section className="section-padding bg-[#2e1065]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">The 70-20-10 Learning Model</h2>
-            <p className="text-emerald-100/40">Our approach is grounded in proven adult learning principles.</p>
+            <p className="text-slate-400">Our approach is grounded in proven adult learning principles.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -203,10 +203,10 @@ const Approach = () => {
               { percentage: "20%", title: "Social", desc: "Learning from peers, group discussions, and expert feedback sessions." },
               { percentage: "10%", title: "Formal", desc: "Structured theoretical knowledge, frameworks, and conceptual models." },
             ].map((item, idx) => (
-              <div key={idx} className="bg-emerald-950/30 p-10 rounded-3xl text-center border border-white/5">
-                <p className="text-5xl font-bold text-emerald-500 mb-4">{item.percentage}</p>
+              <div key={idx} className="bg-white/5 p-10 rounded-3xl text-center border border-white/5">
+                <p className="text-5xl font-bold text-brand-500 mb-4">{item.percentage}</p>
                 <h4 className="text-xl font-bold text-white mb-4">{item.title}</h4>
-                <p className="text-emerald-100/40 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

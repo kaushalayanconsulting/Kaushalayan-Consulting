@@ -142,13 +142,17 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0a051a]/95 backdrop-blur-md shadow-lg py-3' : 'bg-[#0a051a]/80 py-5'
-      }`}
+      className="relative w-full bg-[#881337] py-6 border-b border-white/5"
+      aria-label="Main Navigation"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="/" onClick={scrollToTop} className="flex items-center space-x-3 group">
+          <a 
+            href="/" 
+            onClick={scrollToTop} 
+            className="flex items-center space-x-3 group focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none rounded-lg p-1"
+            aria-label="Kaushalayan Consulting - Home"
+          >
             <img 
               src="https://i.ibb.co/7tLyYFYh/Whats-App-Image-2026-03-21-at-21-13-31.jpg" 
               alt="Kaushalayan Logo" 
@@ -172,6 +176,7 @@ const Navbar = () => {
                   if (e.key === 'Enter') handleSearch(searchQuery);
                 }}
                 placeholder="AI Search..."
+                aria-label="Search site"
                 className="w-48 bg-white/5 border border-white/10 rounded-full py-2 pl-10 pr-4 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:w-64 transition-all"
               />
               <Search className="absolute left-3 top-2.5 text-white/40" size={16} />
@@ -189,15 +194,18 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   className="absolute top-full left-0 w-full mt-2 bg-slate-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50"
+                  role="listbox"
+                  aria-label="Search suggestions"
                 >
                   {suggestions.map((suggestion, i) => (
                     <button
                       key={i}
+                      role="option"
                       onClick={() => {
                         setSearchQuery(suggestion);
                         handleSearch(suggestion);
                       }}
-                      className="w-full text-left px-4 py-3 text-sm text-white/70 hover:bg-white/5 hover:text-brand-400 transition-colors border-b border-white/5 last:border-0"
+                      className="w-full text-left px-4 py-3 text-sm text-white/70 hover:bg-white/5 hover:text-brand-400 focus:bg-white/5 focus:text-brand-400 focus:outline-none transition-colors border-b border-white/5 last:border-0"
                     >
                       {suggestion}
                     </button>
@@ -213,7 +221,8 @@ const Navbar = () => {
               <a
                 key={link.path}
                 href={link.path}
-                className={`text-sm font-medium transition-colors hover:text-brand-400 ${
+                aria-current={isActive(link.path) ? 'page' : undefined}
+                className={`text-sm font-medium transition-colors hover:text-brand-400 focus-visible:text-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 ${
                   isActive(link.path) ? 'text-brand-400' : 'text-slate-300'
                 }`}
               >
@@ -222,7 +231,7 @@ const Navbar = () => {
             ))}
             <a
               href="/contact"
-              className="bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-700 transition-all shadow-lg shadow-brand-900/20"
+              className="bg-brand-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-700 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none transition-all shadow-lg shadow-brand-900/20"
             >
               Get Started
             </a>
@@ -232,7 +241,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-300 hover:text-brand-400 transition-colors"
+              aria-expanded={isOpen}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              className="text-slate-300 hover:text-brand-400 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:outline-none rounded-lg p-1 transition-colors"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -262,6 +273,7 @@ const Navbar = () => {
                       if (e.key === 'Enter') handleSearch(searchQuery);
                     }}
                     placeholder="AI Search..."
+                    aria-label="Search site"
                     className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-4 text-base text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 transition-all"
                   />
                   <Search className="absolute left-4 top-3.5 text-white/40" size={20} />
@@ -279,15 +291,18 @@ const Navbar = () => {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       className="mt-2 bg-slate-900/50 rounded-2xl overflow-hidden"
+                      role="listbox"
+                      aria-label="Search suggestions"
                     >
                       {suggestions.map((suggestion, i) => (
                         <button
                           key={i}
+                          role="option"
                           onClick={() => {
                             setSearchQuery(suggestion);
                             handleSearch(suggestion);
                           }}
-                          className="w-full text-left px-4 py-4 text-base text-white/70 hover:bg-white/5 hover:text-brand-400 transition-colors border-b border-white/5 last:border-0"
+                          className="w-full text-left px-4 py-4 text-base text-white/70 hover:bg-white/5 hover:text-brand-400 focus:bg-white/5 focus:text-brand-400 focus:outline-none transition-colors border-b border-white/5 last:border-0"
                         >
                           {suggestion}
                         </button>
@@ -302,7 +317,8 @@ const Navbar = () => {
                   key={link.path}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-3 py-4 text-base font-medium border-b border-slate-800 ${
+                  aria-current={isActive(link.path) ? 'page' : undefined}
+                  className={`block px-3 py-4 text-base font-medium border-b border-slate-800 focus:text-brand-400 focus:outline-none ${
                     isActive(link.path) ? 'text-brand-400' : 'text-slate-300'
                   }`}
                 >
@@ -328,25 +344,17 @@ const Navbar = () => {
 
 const Marquee = () => {
   return (
-    <div className="w-full bg-[#0a051a] overflow-hidden border-y border-white/5 relative">
-      {/* Decorative Gradient Overlays */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a051a] to-transparent z-20"></div>
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a051a] to-transparent z-20"></div>
-      
-      {/* Subtle Glow Line */}
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/20 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/20 to-transparent"></div>
-
-      <div className="animate-marquee py-3 text-brand-400/60 font-medium text-[9px] md:text-[10px] tracking-[0.6em] uppercase flex items-center">
+    <div className="w-full bg-yellow-400 overflow-hidden relative border-b border-black/5">
+      <div className="animate-marquee py-2.5 text-black font-black text-[11px] md:text-[13px] tracking-[0.5em] uppercase flex items-center">
         {[1, 2, 3, 4, 5, 6].map((i) => (
           <div key={i} className="flex items-center shrink-0">
             <span className="px-12 whitespace-nowrap">
               Bridging the gap between potential and performance
             </span>
             <div className="flex space-x-3 items-center mx-4">
-              <div className="w-1 h-1 bg-brand-500/40 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.6)]"></div>
-              <div className="w-0.5 h-0.5 bg-brand-500/10 rounded-full"></div>
-              <div className="w-1 h-1 bg-brand-500/40 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.6)]"></div>
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+              <div className="w-1 h-1 bg-black/30 rounded-full"></div>
+              <div className="w-2 h-2 bg-black rounded-full"></div>
             </div>
           </div>
         ))}
@@ -357,7 +365,7 @@ const Marquee = () => {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0a051a] text-slate-300 pt-20 pb-10 border-t border-white/5">
+    <footer className="bg-[#451a03] text-slate-300 pt-20 pb-10 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
@@ -376,29 +384,29 @@ const Footer = () => {
               Transforming workforces through expert training and business development consultancy. 15+ years of excellence in professional growth.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-brand-400 transition-colors"><Linkedin size={20} /></a>
-              <a href="#" className="hover:text-brand-400 transition-colors"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-brand-400 transition-colors"><Facebook size={20} /></a>
+              <a href="#" aria-label="LinkedIn" className="hover:text-brand-400 focus-visible:text-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md p-1 transition-colors"><Linkedin size={20} /></a>
+              <a href="#" aria-label="Twitter" className="hover:text-brand-400 focus-visible:text-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md p-1 transition-colors"><Twitter size={20} /></a>
+              <a href="#" aria-label="Facebook" className="hover:text-brand-400 focus-visible:text-brand-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md p-1 transition-colors"><Facebook size={20} /></a>
             </div>
           </div>
 
           <div>
             <h4 className="text-white font-display font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/services" className="hover:text-white transition-colors">Our Services</a></li>
-              <li><a href="/approach" className="hover:text-white transition-colors">Training Approach</a></li>
-              <li><a href="/pricing" className="hover:text-white transition-colors">Pricing Plans</a></li>
+              <li><a href="/about" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">About Us</a></li>
+              <li><a href="/services" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Our Services</a></li>
+              <li><a href="/approach" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Training Approach</a></li>
+              <li><a href="/pricing" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Pricing Plans</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-display font-semibold mb-6">Services</h4>
             <ul className="space-y-4 text-sm">
-              <li><a href="/services" className="hover:text-white transition-colors">Negotiation Skills</a></li>
-              <li><a href="/services" className="hover:text-white transition-colors">Team Collaboration</a></li>
-              <li><a href="/services" className="hover:text-white transition-colors">Client Handling</a></li>
-              <li><a href="/services" className="hover:text-white transition-colors">Professionalism</a></li>
+              <li><a href="/services" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Negotiation Skills</a></li>
+              <li><a href="/services" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Team Collaboration</a></li>
+              <li><a href="/services" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Client Handling</a></li>
+              <li><a href="/services" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Professionalism</a></li>
             </ul>
           </div>
 
@@ -429,8 +437,8 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white focus-visible:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/50 rounded-md px-2 py-1 transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -446,9 +454,8 @@ export const Layout = ({ children }: LayoutProps) => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a051a]">
+    <div className="min-h-screen flex flex-col bg-[#2e1065]">
       <Navbar />
-      <div className="h-[80px]" />
       <Marquee />
       <main className="flex-grow">
         <AnimatePresence mode="wait">

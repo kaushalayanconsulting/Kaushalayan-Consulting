@@ -20,7 +20,7 @@
 
 @layer base {
   body {
-    @apply font-sans text-white bg-slate-900 selection:bg-brand-500 selection:text-white;
+    @apply font-sans text-white bg-[#2e1065] selection:bg-brand-500 selection:text-white;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -29,7 +29,7 @@
 }
 
 .glass-card {
-  @apply bg-slate-900/50 backdrop-blur-md border border-white/10 shadow-xl;
+  @apply bg-[#2e1065]/50 backdrop-blur-md border border-white/10 shadow-xl;
 }
 
 .section-padding {

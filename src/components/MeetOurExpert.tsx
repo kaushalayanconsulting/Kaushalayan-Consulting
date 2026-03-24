@@ -3,11 +3,11 @@ import { Award, CheckCircle2 } from 'lucide-react';
 
 export const MeetOurExpert = () => {
   return (
-    <section className="section-padding bg-pink-950/20">
+    <section className="section-padding bg-[#2e1065]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Meet Our Expert</h2>
-          <div className="w-24 h-1 bg-pink-500 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-brand-500 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -25,13 +25,13 @@ export const MeetOurExpert = () => {
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-pink-950 via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065] via-transparent to-transparent opacity-60"></div>
               <div className="absolute bottom-8 left-8 right-8 p-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20">
                 <h3 className="text-3xl font-bold text-white mb-1">Vinayak Jha</h3>
-                <p className="text-pink-400 font-medium">Quality & Training Professional</p>
+                <p className="text-brand-400 font-medium">Quality & Training Professional</p>
               </div>
             </div>
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-pink-500/20 rounded-full blur-[100px] -z-10"></div>
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-brand-500/10 rounded-full blur-[100px] -z-10"></div>
           </motion.div>
 
           <motion.div
@@ -43,36 +43,36 @@ export const MeetOurExpert = () => {
           >
             <div>
               <h4 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Award className="text-pink-500" size={32} />
+                <Award className="text-brand-500" size={32} />
                 Expertise & Background
               </h4>
-              <p className="text-pink-100/70 leading-relaxed text-lg mb-8">
+              <p className="text-slate-200 leading-relaxed text-lg mb-8">
                 Seasoned Quality & Training professional with 15+ years of experience across Customer Experience, Sales, and Operations. Expertise in quality frameworks and process optimization.
               </p>
-              <p className="text-pink-100/60 leading-relaxed mb-8">
+              <p className="text-slate-300 leading-relaxed mb-8">
                 Strong expertise in Six Sigma, stakeholder management, and performance improvement. Specializing in Lean Six Sigma, COPC, QMS (ISO 9001:2015), RCA, and audit frameworks.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-6">
-              <div className="bg-pink-900/20 p-6 rounded-2xl border border-white/5">
+              <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
                 <h5 className="font-bold text-white mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="text-pink-500" size={18} />
+                  <CheckCircle2 className="text-brand-500" size={18} />
                   Specializations
                 </h5>
-                <ul className="text-sm text-pink-100/40 space-y-2">
+                <ul className="text-sm text-slate-400 space-y-2">
                   <li>Lean Six Sigma</li>
                   <li>COPC & QMS</li>
                   <li>ISO 9001:2015</li>
                   <li>RCA & Audit Frameworks</li>
                 </ul>
               </div>
-              <div className="bg-pink-900/20 p-6 rounded-2xl border border-white/5">
+              <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
                 <h5 className="font-bold text-white mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="text-pink-500" size={18} />
+                  <CheckCircle2 className="text-brand-500" size={18} />
                   Experience
                 </h5>
-                <ul className="text-sm text-pink-100/40 space-y-2">
+                <ul className="text-sm text-slate-400 space-y-2">
                   <li>Customer Experience</li>
                   <li>Sales Operations</li>
                   <li>Process Optimization</li>
@@ -83,14 +83,14 @@ export const MeetOurExpert = () => {
 
             <div className="pt-8 border-t border-white/5">
               <p className="text-sm font-bold text-white uppercase tracking-widest mb-4">Worked with leading organizations</p>
-              <div className="flex flex-wrap gap-4 text-pink-100/50 font-medium">
+              <div className="flex flex-wrap gap-4 text-slate-400 font-medium">
                 {['Concentrix', 'Realme India', 'Pristyn Care', 'Snapdeal', 'Tech Mahindra'].map((org) => (
-                  <span key={org} className="px-4 py-2 bg-pink-900/30 rounded-lg border border-white/5 text-xs">
+                  <span key={org} className="px-4 py-2 bg-white/5 rounded-lg border border-white/5 text-xs">
                     {org}
                   </span>
                 ))}
               </div>
-              <p className="mt-6 text-sm text-pink-100/40 italic">
+              <p className="mt-6 text-sm text-slate-400 italic">
                 Managing diverse processes across telecom, e-commerce, healthcare, and mobility domains.
               </p>
             </div>
