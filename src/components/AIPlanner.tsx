@@ -15,7 +15,7 @@ export const AIPlanner = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
       const response = await ai.models.generateContent({
         model: "gemini-3-flash-preview",
-        contents: `You are a professional training consultant at Kaushalayan Consulting. Create a 4-week high-level training plan for a client with this goal: "${goal}". Focus on professional skills like negotiation, collaboration, and client handling. Format the output as a structured plan with weekly focus points. Keep it professional and concise.`,
+        contents: `You are a professional training consultant at Kaushalayan Consulting. Based on the client's goal: "${goal}", provide a comprehensive training requirement analysis and a high-level conceptual idea for a tailored training program. Focus on professional skills like negotiation, collaboration, and client handling. Format the output with clear sections for "Training Requirements" and "Program Concept". Keep it professional, insightful, and concise.`,
       });
       setPlan(response.text || 'Unable to generate plan at this time.');
     } catch (error) {
@@ -48,7 +48,7 @@ export const AIPlanner = () => {
             Your Personal <span className="text-yellow-500">AI Training Planner</span>
           </h2>
           <p className="text-slate-300 text-lg max-w-2xl mx-auto">
-            Tell us your professional goals, and our AI will craft a specialized training roadmap tailored to your success.
+            Tell us your professional goals, and our AI will analyze your requirements and propose a tailored training concept.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export const AIPlanner = () => {
                 ) : (
                   <>
                     <Calendar size={24} />
-                    <span>Generate My 4-Week Plan</span>
+                    <span>Start planning</span>
                     <ArrowRight size={24} />
                   </>
                 )}
@@ -99,7 +99,7 @@ export const AIPlanner = () => {
                     <div className="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center text-yellow-500">
                       <CheckCircle2 size={24} />
                     </div>
-                    <h3 className="text-2xl font-bold text-white">Your Specialized Roadmap</h3>
+                    <h3 className="text-2xl font-bold text-white">Your Training Proposal</h3>
                   </div>
                   <div className="prose prose-invert max-w-none">
                     <div className="bg-[#2e1065]/50 rounded-3xl p-8 border border-white/5 text-slate-200 whitespace-pre-wrap leading-relaxed">
@@ -107,13 +107,13 @@ export const AIPlanner = () => {
                     </div>
                   </div>
                   <div className="mt-8 flex justify-center">
-                    <a 
-                      href="/contact"
-                      className="text-yellow-500 font-bold flex items-center space-x-2 hover:underline"
+                    <button 
+                      onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))}
+                      className="text-yellow-500 font-bold flex items-center space-x-2 hover:underline focus:outline-none"
                     >
                       <span>Discuss this plan with an expert</span>
                       <ArrowRight size={16} />
-                    </a>
+                    </button>
                   </div>
                 </motion.div>
               )}

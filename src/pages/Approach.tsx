@@ -30,24 +30,24 @@ const Approach = () => {
   ];
 
   return (
-    <div className="bg-[#450a0a] min-h-screen relative overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="bg-[#2d0606] min-h-screen relative overflow-hidden">
+      {/* Premium Animated Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div 
           animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.1, 0.2, 0.1],
+            opacity: [0.03, 0.08, 0.03],
+            scale: [1, 1.1, 1],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/4 -left-1/4 w-full h-full bg-red-600/20 rounded-full blur-[120px]"
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,#991b1b_0%,transparent_50%)] blur-[120px]"
         />
         <motion.div 
           animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.05, 0.15, 0.05],
+            opacity: [0.02, 0.06, 0.02],
+            scale: [1.1, 1, 1.1],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute -bottom-1/4 -right-1/4 w-full h-full bg-rose-600/10 rounded-full blur-[120px]"
+          className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_70%,#7f1d1d_0%,transparent_50%)] blur-[120px]"
         />
       </div>
       {/* Header */}
@@ -67,7 +67,7 @@ const Approach = () => {
       </section>
 
       {/* Steps Section */}
-      <section className="section-padding bg-[#450a0a]">
+      <section className="section-padding bg-[#2d0606]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             {/* Vertical Line for Desktop */}
@@ -105,8 +105,61 @@ const Approach = () => {
         </div>
       </section>
 
+      {/* Core Training Pillars Section */}
+      <section className="section-padding bg-[#2d0606] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Our Core Training Pillars</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">The foundation of our excellence in professional development.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { 
+                title: "Customized Content", 
+                desc: "Every training module is tailored to your specific industry and organizational needs." 
+              },
+              { 
+                title: "Real-life Simulations", 
+                desc: "We use practical scenarios that professionals face daily to ensure learning sticks." 
+              },
+              { 
+                title: "Expert Facilitators", 
+                desc: "Our trainers bring 15+ years of corporate experience to the classroom." 
+              },
+              { 
+                title: "Post-training Support", 
+                desc: "We provide follow-up sessions and resources to ensure implementation of skills." 
+              },
+              { 
+                title: "Measurable Impact", 
+                desc: "Our pre and post-assessments help you track the ROI of your training investment." 
+              },
+              { 
+                title: "Global Standards", 
+                desc: "Training methodologies aligned with the latest international business practices." 
+              },
+            ].map((pillar, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-yellow-600/10 p-8 rounded-3xl border border-yellow-500/20 shadow-xl group hover:bg-yellow-600/20 transition-all duration-300"
+              >
+                <h3 className="text-xl font-bold text-yellow-500 mb-4 group-hover:text-yellow-400 transition-colors">{pillar.title}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  {pillar.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Training Program Features Section */}
-      <section className="section-padding bg-[#450a0a] border-t border-white/5">
+      <section className="section-padding bg-[#2d0606] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Training Program Features</h2>
@@ -165,7 +218,7 @@ const Approach = () => {
       </section>
 
       {/* Professional Training Programs Section */}
-      <section className="section-padding bg-[#450a0a]">
+      <section className="section-padding bg-[#2d0606]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Professional Training Programs</h2>
@@ -209,7 +262,7 @@ const Approach = () => {
       </section>
 
       {/* Methodology Section */}
-      <section className="section-padding bg-[#450a0a]/50">
+      <section className="section-padding bg-[#2d0606]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">The 70-20-10 Learning Model</h2>

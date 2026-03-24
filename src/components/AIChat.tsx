@@ -86,19 +86,30 @@ export const AIChat = () => {
         {/* AI Button */}
         <AnimatePresence>
           {!isOpen && (
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setIsOpen(true)}
-              aria-label="Open AI Chat Advisor"
-              className="w-14 h-14 bg-brand-600 text-white rounded-2xl shadow-lg flex items-center justify-center group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#2e1065]"
+            <motion.div
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 20, opacity: 0 }}
+              className="flex items-center space-x-3"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-700 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Sparkles size={24} className="relative z-10" />
-            </motion.button>
+              <motion.div 
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-brand-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-lg whitespace-nowrap hidden sm:block border border-white/10"
+              >
+                Chat with Advisor
+              </motion.div>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsOpen(true)}
+                aria-label="Open AI Chat Advisor"
+                className="w-14 h-14 bg-brand-600 text-white rounded-2xl shadow-lg flex items-center justify-center group overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#2e1065] relative"
+              >
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-700 to-brand-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Sparkles size={24} className="relative z-10" />
+              </motion.button>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>
@@ -128,7 +139,7 @@ export const AIChat = () => {
                   <p className="font-bold text-sm tracking-tight">Kaushalayan AI</p>
                   <div className="flex items-center space-x-1">
                     <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
-                    <p className="text-[10px] font-medium text-brand-100 uppercase tracking-wider">Always Online</p>
+                    <p className="text-[10px] font-medium text-brand-100 uppercase tracking-wider">Ready 24/7</p>
                   </div>
                 </div>
               </div>

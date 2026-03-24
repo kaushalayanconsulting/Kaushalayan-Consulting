@@ -344,16 +344,40 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-white/[0.02] p-10 rounded-[2rem] shadow-2xl border border-white/5 hover:border-brand-500/30 transition-all duration-500 group"
+                className="bg-yellow-600/10 p-10 rounded-[2rem] shadow-2xl border border-yellow-500/20 hover:border-yellow-500/50 transition-all duration-500 group"
               >
-                <div className="w-12 h-12 bg-brand-500/10 rounded-xl flex items-center justify-center text-brand-500 mb-8 border border-brand-500/20 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500 mb-8 border border-yellow-500/20 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
                   <CheckCircle2 size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-brand-400 transition-colors">{item.title}</h3>
+                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-yellow-400 transition-colors">{item.title}</h3>
                 <p className="text-slate-300 text-sm leading-relaxed font-light">{item.desc}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Digital Image Section */}
+      <section className="py-20 bg-[#2e1065]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="rounded-[3rem] overflow-hidden shadow-2xl border border-white/10 aspect-[21/9] relative group"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920" 
+              alt="Digital Transformation" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#2e1065] via-transparent to-transparent opacity-60"></div>
+            <div className="absolute bottom-12 left-12">
+              <h3 className="text-3xl font-bold text-white mb-2">Digital Transformation</h3>
+              <p className="text-slate-300 font-light">Empowering teams through modern digital learning methodologies.</p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -375,12 +399,12 @@ const Home = () => {
                 >
                   Schedule Consultation
                 </a>
-                <a
-                  href="/services"
-                  className="inline-block bg-transparent text-white border border-white/30 px-12 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm"
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))}
+                  className="inline-block bg-transparent text-white border border-white/30 px-12 py-5 rounded-full font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-sm focus:outline-none"
                 >
-                  View Programs
-                </a>
+                  Chat with Advisor
+                </button>
               </div>
             </div>
           </div>
