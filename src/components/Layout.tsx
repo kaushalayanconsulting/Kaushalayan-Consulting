@@ -240,10 +240,29 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Marquee - Now part of the Navbar container */}
-      <div className="w-full bg-white overflow-hidden border-b border-red-100">
-        <div className="animate-marquee py-2 text-red-600 font-bold text-sm md:text-base">
-          A premier training consultancy dedicated to bridging the gap between potential and performance through expert-led professional development.
+      {/* Marquee - Enhanced Premium Decoration */}
+      <div className="w-full bg-[#0a051a] overflow-hidden border-y border-white/10 relative">
+        {/* Decorative Gradient Overlays */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0a051a] to-transparent z-20"></div>
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0a051a] to-transparent z-20"></div>
+        
+        {/* Subtle Glow Line */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-500/50 to-transparent"></div>
+
+        <div className="animate-marquee py-4 text-brand-400/80 font-medium text-[10px] md:text-xs tracking-[0.4em] uppercase flex items-center">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
+            <div key={i} className="flex items-center shrink-0">
+              <span className="px-16 whitespace-nowrap">
+                Bridging the gap between potential and performance
+              </span>
+              <div className="flex space-x-2 items-center mx-4">
+                <div className="w-1.5 h-1.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.8)]"></div>
+                <div className="w-1 h-1 bg-brand-500/40 rounded-full"></div>
+                <div className="w-1.5 h-1.5 bg-brand-500 rounded-full shadow-[0_0_8px_rgba(var(--brand-500),0.8)]"></div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -426,7 +445,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="h-[104px] md:h-[120px]" />
+      <div className="h-[110px] md:h-[140px]" />
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
