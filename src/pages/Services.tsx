@@ -64,7 +64,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="bg-[#2e1065] min-h-screen">
+    <div className="bg-[#422006] min-h-screen">
       {/* Header */}
       <section className="bg-white/5 py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -91,7 +91,7 @@ const Services = () => {
       </section>
 
       {/* Modules Grid */}
-      <section className="section-padding bg-[#2e1065]">
+      <section className="section-padding bg-[#422006]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Training Modules Overview</h2>
@@ -141,7 +141,7 @@ const Services = () => {
       </section>
 
       {/* Training Delivery Features */}
-      <section className="section-padding bg-[#2e1065] border-t border-white/5">
+      <section className="section-padding bg-[#422006] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Training Program Features</h2>
@@ -214,7 +214,7 @@ const Services = () => {
       </section>
 
       {/* Custom Training Section */}
-      <section className="section-padding bg-[#2e1065]/50">
+      <section className="section-padding bg-[#422006]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/5 rounded-[2.5rem] p-12 shadow-sm border border-white/5 flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">

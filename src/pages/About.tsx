@@ -19,7 +19,7 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-[#2e1065] min-h-screen">
+    <div className="bg-[#172554] min-h-screen">
       {/* Header */}
       <section className="bg-white/5 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -37,7 +37,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="section-padding bg-[#2e1065]">
+      <section className="section-padding bg-[#172554]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -72,7 +72,7 @@ const About = () => {
       </section>
 
       {/* Who We Are Section */}
-      <section className="section-padding bg-[#2e1065]">
+      <section className="section-padding bg-[#172554]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -125,7 +125,7 @@ const About = () => {
       </section>
 
       {/* Expertise Section */}
-      <section className="section-padding bg-[#2e1065]/50">
+      <section className="section-padding bg-[#172554]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Our Core Expertise</h2>
@@ -206,7 +206,7 @@ const About = () => {
       </section>
 
       {/* Proven Success Section */}
-      <section className="section-padding bg-[#2e1065]/30">
+      <section className="section-padding bg-[#172554]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -298,7 +298,7 @@ const About = () => {
       <MeetOurExpert />
 
       {/* Client Reviews */}
-      <section className="section-padding bg-[#2e1065]/20">
+      <section className="section-padding bg-[#172554]/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">

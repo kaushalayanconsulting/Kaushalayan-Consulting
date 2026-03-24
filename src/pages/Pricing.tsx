@@ -27,9 +27,9 @@ const Pricing = () => {
   ];
 
   return (
-    <div className="bg-[#2e1065] min-h-screen">
+    <div className="bg-[#022c22] min-h-screen">
       {/* Header */}
-      <section className="bg-[#2e1065] py-16 border-b border-white/5">
+      <section className="bg-[#022c22] py-16 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="section-padding bg-[#2e1065]">
+      <section className="section-padding bg-[#022c22]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {plans.map((plan, idx) => (
@@ -90,7 +90,7 @@ const Pricing = () => {
           </div>
 
           {/* Enquiry Form */}
-          <div className="mt-20 max-w-3xl mx-auto bg-[#2e1065] p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl">
+          <div className="mt-20 max-w-3xl mx-auto bg-[#022c22] p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl">
             <div className="text-center mb-10">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">Send an Enquiry</h3>
               <p className="text-slate-400">Tell us about your training requirements and we'll get back to you with a tailored plan.</p>
@@ -105,7 +105,7 @@ const Pricing = () => {
                     name="name" 
                     required 
                     placeholder="John Doe"
-                    className="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
+                    className="w-full bg-[#022c22] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
                   />
                 </div>
                 <div className="space-y-2">
@@ -115,7 +115,7 @@ const Pricing = () => {
                     name="phone" 
                     required 
                     placeholder="+91 98765 43210"
-                    className="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
+                    className="w-full bg-[#022c22] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
                   />
                 </div>
               </div>
@@ -127,7 +127,7 @@ const Pricing = () => {
                   name="email" 
                   required 
                   placeholder="john@company.com"
-                  className="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
+                  className="w-full bg-[#022c22] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors"
                 />
               </div>
               
@@ -138,7 +138,7 @@ const Pricing = () => {
                   required 
                   rows={4}
                   placeholder="Describe your training needs, batch size, and preferred dates..."
-                  className="w-full bg-[#1a1a1a] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors resize-none"
+                  className="w-full bg-[#022c22] border border-white/10 rounded-xl px-5 py-3 text-white focus:outline-none focus:border-brand-500 transition-colors resize-none"
                 ></textarea>
               </div>
               
@@ -151,8 +151,8 @@ const Pricing = () => {
             </form>
           </div>
 
-          <div className="mt-20 bg-[#2e1065]/50 p-8 md:p-12 rounded-[2rem] max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 border border-white/5">
-            <div className="w-16 h-16 bg-[#2e1065] rounded-2xl flex items-center justify-center text-brand-400 shadow-sm shrink-0 border border-white/5">
+          <div className="mt-20 bg-[#022c22]/50 p-8 md:p-12 rounded-[2rem] max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 border border-white/5">
+            <div className="w-16 h-16 bg-[#022c22] rounded-2xl flex items-center justify-center text-brand-400 shadow-sm shrink-0 border border-white/5">
               <Users size={32} />
             </div>
             <div>
@@ -169,7 +169,7 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-[#2e1065]">
+      <section className="section-padding bg-[#022c22]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
@@ -182,7 +182,7 @@ const Pricing = () => {
               { q: "Can we mix virtual and classroom training?", a: "Absolutely. We offer hybrid models where some sessions are virtual and others are in-person for maximum flexibility." },
               { q: "What is your cancellation policy?", a: "Cancellations made 7 days prior to the session are fully refundable. Later cancellations may incur a 20% service fee." },
             ].map((faq, idx) => (
-              <div key={idx} className="bg-[#2e1065] p-8 rounded-2xl shadow-sm border border-white/5">
+              <div key={idx} className="bg-[#022c22] p-8 rounded-2xl shadow-sm border border-white/5">
                 <h4 className="font-bold text-white mb-3 flex items-start">
                   <Info size={18} className="text-brand-500 mr-2 mt-1 shrink-0" />
                   {faq.q}

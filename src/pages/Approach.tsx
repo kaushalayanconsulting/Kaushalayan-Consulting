@@ -30,7 +30,26 @@ const Approach = () => {
   ];
 
   return (
-    <div className="bg-[#2e1065] min-h-screen">
+    <div className="bg-[#450a0a] min-h-screen relative overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-1/4 -left-1/4 w-full h-full bg-red-600/20 rounded-full blur-[120px]"
+        />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.05, 0.15, 0.05],
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-1/4 -right-1/4 w-full h-full bg-rose-600/10 rounded-full blur-[120px]"
+        />
+      </div>
       {/* Header */}
       <section className="bg-white/5 py-16 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -48,7 +67,7 @@ const Approach = () => {
       </section>
 
       {/* Steps Section */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-[#450a0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
             {/* Vertical Line for Desktop */}
@@ -87,7 +106,7 @@ const Approach = () => {
       </section>
 
       {/* Training Program Features Section */}
-      <section className="section-padding bg-[#2e1065] border-t border-white/5">
+      <section className="section-padding bg-[#450a0a] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Training Program Features</h2>
@@ -146,7 +165,7 @@ const Approach = () => {
       </section>
 
       {/* Professional Training Programs Section */}
-      <section className="section-padding bg-[#1a1a1a]">
+      <section className="section-padding bg-[#450a0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Professional Training Programs</h2>
@@ -190,7 +209,7 @@ const Approach = () => {
       </section>
 
       {/* Methodology Section */}
-      <section className="section-padding bg-[#2e1065]/50">
+      <section className="section-padding bg-[#450a0a]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-white mb-4">The 70-20-10 Learning Model</h2>

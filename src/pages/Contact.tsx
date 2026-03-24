@@ -37,9 +37,14 @@ const Contact = () => {
   };
 
   return (
-    <div className="bg-[#2e1065] min-h-screen text-white">
+    <div className="bg-[#1e1b4b] min-h-screen text-white relative overflow-hidden">
+      {/* Pink accents */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-pink-600/10 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-fuchsia-600/10 rounded-full blur-[120px]"></div>
+      </div>
       {/* Header */}
-      <section className="bg-[#2e1065] py-10 md:py-16 border-b border-white/10">
+      <section className="bg-[#1e1b4b] py-10 md:py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -54,12 +59,12 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-8 md:py-20 bg-[#2e1065]">
+      <section className="py-8 md:py-20 bg-[#1e1b4b]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-6 md:space-y-8">
-              <div className="bg-[#2e1065] p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-white/5">
+              <div className="bg-[#1e1b4b] p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-white/5">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-6 md:mb-8">Contact Information</h3>
                 
                 <div className="space-y-6 md:space-y-8">
@@ -128,7 +133,7 @@ const Contact = () => {
                 href="https://wa.link/a21az8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-left bg-[#2e1065] p-10 rounded-[2.5rem] text-white hover:bg-[#3b0764] transition-all group border border-white/5"
+                className="block w-full text-left bg-[#1e1b4b] p-10 rounded-[2.5rem] text-white hover:bg-[#312e81] transition-all group border border-white/5"
               >
                 <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-white/5">
                   <svg viewBox="0 0 24 24" className="w-8 h-8 fill-current text-brand-400" xmlns="http://www.w3.org/2000/svg">
@@ -144,7 +149,7 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-[#2e1065] p-6 md:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-white/5">
+              <div className="bg-[#1e1b4b] p-6 md:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border border-white/5">
                 {submitted ? (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -233,7 +238,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 md:mt-20 bg-[#2e1065] rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl"
+            className="mt-12 md:mt-20 bg-[#1e1b4b] rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl"
           >
             <div className="grid md:grid-cols-2 items-center">
               <div className="h-[300px] md:h-full">
