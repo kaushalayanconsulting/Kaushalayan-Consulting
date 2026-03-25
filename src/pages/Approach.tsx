@@ -146,7 +146,7 @@ const Approach = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="bg-yellow-600/10 p-8 rounded-3xl border border-yellow-500/20 shadow-xl group hover:bg-yellow-600/20 transition-all duration-300"
+                className="bg-yellow-500/10 p-8 rounded-3xl border border-yellow-500/30 shadow-xl group hover:bg-yellow-500/20 transition-all duration-300"
               >
                 <h3 className="text-xl font-bold text-yellow-500 mb-4 group-hover:text-yellow-400 transition-colors">{pillar.title}</h3>
                 <p className="text-slate-300 text-sm leading-relaxed">
