@@ -4,6 +4,10 @@ import { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 
 const Pricing = () => {
+  const [calcHours, setCalcHours] = useState(4);
+  const [calcParticipants, setCalcParticipants] = useState(10);
+  const [calcType, setCalcType] = useState('virtual');
+
   const plans = [
     {
       name: "Virtual Training",
@@ -88,6 +92,117 @@ const Pricing = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Interactive Calculator */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-24 max-w-5xl mx-auto bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-[3rem] overflow-hidden shadow-2xl"
+          >
+            <div className="grid lg:grid-cols-2">
+              <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
+                <div className="flex items-center space-x-3 mb-8">
+                  <div className="w-10 h-10 bg-brand-500/20 rounded-xl flex items-center justify-center text-brand-400">
+                    <Info size={20} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Cost Estimator</h3>
+                </div>
+
+                <div className="space-y-8">
+                  <div className="space-y-4">
+                    <label className="block text-sm font-medium text-slate-300">Training Type</label>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button
+                        onClick={() => setCalcType('virtual')}
+                        className={`py-3 rounded-xl text-sm font-bold border transition-all ${
+                          calcType === 'virtual' 
+                            ? 'bg-brand-600 border-brand-500 text-white shadow-lg shadow-brand-900/20' 
+                            : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                        }`}
+                      >
+                        Virtual
+                      </button>
+                      <button
+                        onClick={() => setCalcType('classroom')}
+                        className={`py-3 rounded-xl text-sm font-bold border transition-all ${
+                          calcType === 'classroom' 
+                            ? 'bg-brand-600 border-brand-500 text-white shadow-lg shadow-brand-900/20' 
+                            : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                        }`}
+                      >
+                        Classroom
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <label className="text-sm font-medium text-slate-300">Training Hours</label>
+                      <span className="text-brand-400 font-bold">{calcHours} hrs</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="4"
+                      max="40"
+                      step="1"
+                      value={calcHours}
+                      onChange={(e) => setCalcHours(parseInt(e.target.value))}
+                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-500"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-500 uppercase tracking-widest">
+                      <span>Min: 4 hrs</span>
+                      <span>Max: 40 hrs</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <label className="text-sm font-medium text-slate-300">Participants</label>
+                      <span className="text-brand-400 font-bold">{calcParticipants} pax</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      step="1"
+                      value={calcParticipants}
+                      onChange={(e) => setCalcParticipants(parseInt(e.target.value))}
+                      className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-500"
+                    />
+                    <div className="flex justify-between text-[10px] text-slate-500 uppercase tracking-widest">
+                      <span>1 Pax</span>
+                      <span>100 Pax</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-8 md:p-12 bg-brand-600/5 flex flex-col justify-center items-center text-center">
+                <p className="text-slate-400 text-sm uppercase tracking-[0.2em] mb-4">Estimated Investment</p>
+                <div className="flex items-baseline mb-2">
+                  <span className="text-6xl md:text-7xl font-bold text-white">₹{(calcHours * (calcType === 'virtual' ? 2500 : 3000)).toLocaleString()}</span>
+                </div>
+                <p className="text-slate-500 text-xs mb-8">Based on {calcHours} hours of {calcType} training</p>
+                
+                {calcParticipants > 50 && (
+                  <div className="mb-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl flex items-start space-x-3 text-left">
+                    <Info size={16} className="text-yellow-500 shrink-0 mt-0.5" />
+                    <p className="text-[11px] text-yellow-200/70 leading-relaxed">
+                      Note: For batches exceeding 50 participants, additional facilitators or custom logistics may apply. Please contact us for a detailed quote.
+                    </p>
+                  </div>
+                )}
+
+                <button 
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-ai-chat'))}
+                  className="w-full bg-white text-brand-900 py-4 rounded-2xl font-bold text-lg hover:bg-brand-50 transition-all shadow-xl"
+                >
+                  Discuss with Advisor
+                </button>
+              </div>
+            </div>
+          </motion.div>
 
           {/* Enquiry Form */}
           <div className="mt-20 max-w-3xl mx-auto bg-[#022c22] p-8 md:p-12 rounded-[3rem] border border-white/10 shadow-2xl">
