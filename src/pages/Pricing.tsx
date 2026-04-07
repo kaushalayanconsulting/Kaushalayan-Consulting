@@ -159,7 +159,7 @@ const Pricing = () => {
                   <div className="space-y-4">
                     <div className="flex justify-between">
                       <label className="text-sm font-medium text-slate-300">Participants</label>
-                      <span className="text-brand-400 font-bold">{calcParticipants} pax</span>
+                      <span className="text-brand-400 font-bold">{calcParticipants} {calcParticipants === 1 ? 'candidate' : 'candidates'}</span>
                     </div>
                     <input
                       type="range"
@@ -171,8 +171,8 @@ const Pricing = () => {
                       className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-brand-500"
                     />
                     <div className="flex justify-between text-[10px] text-slate-500 uppercase tracking-widest">
-                      <span>1 Pax</span>
-                      <span>100 Pax</span>
+                      <span>1 Candidate</span>
+                      <span>100 Candidates</span>
                     </div>
                   </div>
                 </div>
