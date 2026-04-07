@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { GoogleGenAI } from "@google/genai";
 
 import { AIChat } from './AIChat';
+import { Preloader } from './Preloader';
 
 interface LayoutProps {
   children: ReactNode;
@@ -456,6 +457,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#2e1065]">
+      <Preloader />
       <Navbar />
       <Marquee />
       <main className="flex-grow">
