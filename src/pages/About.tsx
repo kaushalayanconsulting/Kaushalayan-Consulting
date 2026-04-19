@@ -6,7 +6,7 @@ const About = () => {
   const testimonials = [
     {
       name: "OPERATIONS MANAGER",
-      role: "KAYAKALP",
+      role: "PAVI GLOBAL",
       content: "The consulting sessions provided invaluable insights that significantly improved our operational efficiency. The team's expertise and tailored approach were instrumental in driving our success. We now feel equipped to tackle future challenges with confidence and clarity.",
       avatar: "https://picsum.photos/seed/p1/100/100"
     },
